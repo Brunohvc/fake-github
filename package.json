@@ -1,0 +1,28 @@
+{
+  "name": "fake-github",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "serve": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Brunohvc/fake-github.git"
+  },
+  "author": "Bruno Henrique",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Brunohvc/fake-github/issues"
+  },
+  "homepage": "https://github.com/Brunohvc/fake-github#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "node-fetch": "^2.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
