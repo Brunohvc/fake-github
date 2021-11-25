@@ -27,11 +27,11 @@ router.get('github/:userName', function (req, res) {
     }
 });
 // Home page route.
-router.get('github/getlist', function (req, res) {
+router.get('/getlist', function (req, res) {
     res.json(reposData);
 });
 
-router.get('/:userName/repos', function (req, res) {
+router.get('github/:userName/repos', function (req, res) {
     const user = req?.params?.userName;
     let checkHouer = diff_hours(reposData?.[user]?.addedDateRepositories) >= 1;
     if (reposData[user]?.actualRepositories && checkHouer) {
