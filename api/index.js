@@ -4,7 +4,7 @@ const fetch = require('node-fetch');
 const reposData = {};
 
 // Home page route.
-router.get('/:userName', function (req, res) {
+router.get('github/:userName', function (req, res) {
     const user = req?.params?.userName;
     let checkHouer = diff_hours(reposData?.[user]?.addedDate) >= 1;
     if (reposData[user] && checkHouer) {
@@ -27,7 +27,7 @@ router.get('/:userName', function (req, res) {
     }
 });
 // Home page route.
-router.get('/getlist', function (req, res) {
+router.get('github/getlist', function (req, res) {
     res.json(reposData);
 });
 
