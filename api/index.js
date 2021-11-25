@@ -21,6 +21,7 @@ router.get('/search/:userName', function (req, res) {
         delete userData.repositories;
         delete userData.addedDate;
         delete userData.addedDateRepositories;
+        delete userData.actualRepositories;
         res.json(userData);
     } else {
         fetch('https://api.github.com/users/' + user)
