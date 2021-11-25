@@ -40,7 +40,7 @@ router.get('/search/:userName', function (req, res) {
 router.get('/search/:userName/repos', function (req, res) {
     const user = req?.params?.userName;
     let checkHouer = diff_hours(reposData?.[user]?.addedDateRepositories) >= 1;
-    if (reposData[user]?.actualRepositories && checkHouer) {
+    if (reposData[user]?.actualRepositories && !checkHouer) {
         let userData = [...(reposData[user]?.actualRepositories || [])];
         delete userData.repositories;
         delete userData.addedDate;
