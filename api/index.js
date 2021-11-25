@@ -26,6 +26,10 @@ router.get('/:userName', function (req, res) {
             });
     }
 });
+// Home page route.
+router.get('/getlist', function (req, res) {
+    res.json(reposData);
+});
 
 router.get('/:userName/repos', function (req, res) {
     const user = req?.params?.userName;
