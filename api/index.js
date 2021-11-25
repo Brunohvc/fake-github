@@ -3,8 +3,17 @@ const router = express.Router();
 const fetch = require('node-fetch');
 const reposData = {};
 
-// Home page route.
-router.get('github/:userName', function (req, res) {
+router.get('/search', function (req, res) {
+    res.json(reposData);
+});
+
+router.get('/checksearch/:userName', function (req, res) {
+    const user = req?.params?.userName;
+    let checkHouer = diff_hours(reposData?.[user]?.addedDate) >= 1;
+    res.json({ response: checkHouer });
+});
+
+router.get('/search/:userName', function (req, res) {
     const user = req?.params?.userName;
     let checkHouer = diff_hours(reposData?.[user]?.addedDate) >= 1;
     if (reposData[user] && checkHouer) {
@@ -26,12 +35,9 @@ router.get('github/:userName', function (req, res) {
             });
     }
 });
-// Home page route.
-router.get('/getlist', function (req, res) {
-    res.json(reposData);
-});
 
-router.get('github/:userName/repos', function (req, res) {
+
+router.get('/search/:userName/repos', function (req, res) {
     const user = req?.params?.userName;
     let checkHouer = diff_hours(reposData?.[user]?.addedDateRepositories) >= 1;
     if (reposData[user]?.actualRepositories && checkHouer) {

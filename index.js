@@ -17,7 +17,7 @@ function notFound(req, res) {
 
 app.use(logger);
 app.use('/api/', api);
-app.use(notFound);
+// app.use(notFound);
 
 
 app.listen(port);
