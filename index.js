@@ -1,8 +1,10 @@
 const express = require('express');
+const cors = require('cors');
 const app = express();
 const port = process.env.PORT || 8080;
 const api = require('./api/index');
 console.clear();
+app.use(cors());
 
 function logger(req, res, next) {
     console.log('URL:', req.url);
