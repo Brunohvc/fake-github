@@ -4,7 +4,7 @@ const app = express();
 const port = process.env.PORT || 8080;
 const api = require('./api/index');
 console.clear();
-app.use(cors());
+app.use(cors({ credentials: false, origin: false }));
 
 function logger(req, res, next) {
     console.log('URL:', req.url);
