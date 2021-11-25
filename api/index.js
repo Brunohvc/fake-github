@@ -10,7 +10,7 @@ router.get('/search', function (req, res) {
 router.get('/checksearch/:userName', function (req, res) {
     const user = req?.params?.userName;
     let checkHouer = diff_hours(reposData?.[user]?.addedDate) >= 1;
-    res.json({ response: checkHouer });
+    res.json({ response: !checkHouer });
 });
 
 router.get('/search/:userName', function (req, res) {
@@ -43,8 +43,6 @@ router.get('/search/:userName/repos', function (req, res) {
     if (reposData[user]?.actualRepositories && !checkHouer) {
         let userData = [...(reposData[user]?.actualRepositories || [])];
         delete userData.repositories;
-        delete userData.addedDate;
-        delete userData.addedDateRepositories;
         res.json(userData);
     } else {
         fetch('https://api.github.com/users/' + user + '/repos')
