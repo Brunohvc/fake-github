@@ -16,7 +16,7 @@ router.get('/checksearch/:userName', function (req, res) {
 router.get('/search/:userName', function (req, res) {
     const user = req?.params?.userName;
     let checkHouer = diff_hours(reposData?.[user]?.addedDate) >= 1;
-    if (reposData[user] && checkHouer) {
+    if (reposData[user] && !checkHouer) {
         let userData = { ...reposData[user] };
         delete userData.repositories;
         delete userData.addedDate;
